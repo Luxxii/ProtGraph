@@ -258,23 +258,10 @@ def write_output_csv_thread(queue, out_file, total_num_entries):
         csv_writer.writerow(
             [
                 "Accession",
-                "Entry ID",
-                "Number of isoforms",
-                "Has INIT_MET",
-                "Has SIGNAL",
-                "Number of variants",
-                "Number of Mutagens",
-                "Number of Conflicts",
-                "Number of cleaved edges",
-                "Number of nodes",
-                "Number of edges",
-                "Num of possible paths",
-                "Num of possible paths (by miscleavages)",
-                "Num of possible paths (by hops)",
-                "Num of possible paths (by feature variant)",
-                "Num of possible paths (by feature mutagen)",
-                "Num of possible paths (by feature conflict)",
-                "Protein description"
+                "Entry_ID",
+                "Found_PHOSPHO",
+                "Phospho_note",
+                "Phospho_evidence",
             ]
         )
 
@@ -287,9 +274,12 @@ def write_output_csv_thread(queue, out_file, total_num_entries):
             if next_entry is None:
                 break
 
+            if len(next_entry) == 1:
+                pbar.update()
+                continue
             # Write Data Row and update progress
             csv_writer.writerow(next_entry)
-            pbar.update()
+            
 
     # Close pbar, since we finished
     pbar.close()
