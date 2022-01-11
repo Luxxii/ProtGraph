@@ -174,6 +174,7 @@ def generate_graph_consumer(entry_queue, graph_queue, common_out_queue, proc_id,
                         graph_queue.put((
                             entry.accessions[0],  # Protein Accesion
                             entry.entry_name,  # Protein displayed name
+                            mod_res.location.nofuzzy_end, # location of phospho in protein
                             "Phosphoserine",  # the actual found phospho
                             mod_res.qualifiers["note"], # the found phospho with additional notes
                             mod_res.qualifiers["evidence"] if "evidence" in mod_res.qualifiers else ""  # the evidence, if provided
@@ -182,6 +183,7 @@ def generate_graph_consumer(entry_queue, graph_queue, common_out_queue, proc_id,
                         graph_queue.put((
                             entry.accessions[0],  # Protein Accesion
                             entry.entry_name,  # Protein displayed name
+                            mod_res.location.nofuzzy_end, # location of phospho in protein
                             "Phosphotyrosine",  # the actual found phospho
                             mod_res.qualifiers["note"], # the found phospho with additional notes
                             mod_res.qualifiers["evidence"] if "evidence" in mod_res.qualifiers else ""  # the evidence, if provided
@@ -190,6 +192,7 @@ def generate_graph_consumer(entry_queue, graph_queue, common_out_queue, proc_id,
                         graph_queue.put((
                             entry.accessions[0],  # Protein Accesion
                             entry.entry_name,  # Protein displayed name
+                            mod_res.location.nofuzzy_end, # location of phospho in protein
                             "Phosphothreonine",  # the actual found phospho
                             mod_res.qualifiers["note"], # the found phospho with additional notes
                             mod_res.qualifiers["evidence"] if "evidence" in mod_res.qualifiers else ""  # the evidence, if provided

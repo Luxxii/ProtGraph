@@ -259,6 +259,7 @@ def write_output_csv_thread(queue, out_file, total_num_entries):
             [
                 "Accession",
                 "Entry_ID",
+                "Aminoacid_Position"
                 "Found_PHOSPHO",
                 "Phospho_note",
                 "Phospho_evidence",
